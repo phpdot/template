@@ -54,7 +54,9 @@ final class EngineFactory
             'charset' => $this->config->charset,
             'strict_variables' => $this->config->strictVariables,
             'autoescape' => $this->config->autoescape,
-            'cache' => $this->config->cache ?? false,
+            'cache' => ($this->config->cache !== null && $this->config->cache !== '')
+                ? $this->config->cache
+                : false,
             'auto_reload' => $this->config->autoReload,
         ]);
 
